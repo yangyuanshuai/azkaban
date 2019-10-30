@@ -22,6 +22,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -35,6 +36,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeMap;
+
 import org.apache.log4j.Logger;
 
 
@@ -201,7 +203,8 @@ public class Props {
    */
   private void loadFrom(final InputStream inputStream) throws IOException {
     final Properties properties = new Properties();
-    properties.load(inputStream);
+    //properties.load(inputStream);
+    properties.load(new InputStreamReader(inputStream, "UTF-8"));
     this.put(properties);
   }
 
